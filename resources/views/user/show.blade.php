@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-
+    test
 @endsection
 
 @section('footer')
