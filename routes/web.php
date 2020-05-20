@@ -19,6 +19,7 @@ Route::get('/', function () {
 //河住圭紀 追加分 スタート
 Route::get('/admin/login','AdminController@index');
 Route::post('/admin','AdminController@login');
+Route::get('/admin','AdminController@back');
 Route::get('/admin/logout','AdminController@logout');
 Route::get('/admin/userlist','AdminController@usershow');
 Route::get('/admin/innlist','AdminController@innshow');
