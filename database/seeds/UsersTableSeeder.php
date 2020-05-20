@@ -13,15 +13,15 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'family_name'='リナックス',
-            'first_name'='太郎',
-            'postal'='123-4567',
-            'address'='東京都新宿区4丁目３４５',
-            'tel'='090-1234-5678',
-            'email'='linux@linux.com',
-            'email_verified_at'='',
-            'birthday'='2020/05/14',
-            'password'='himitu',
+            'family_name'=>'リナックス',
+            'first_name'=>'太郎',
+            'postal'=>'123-4567',
+            'address'=>'東京都新宿区4丁目３４５',
+            'tel'=>'090-1234-5678',
+            'email'=>'linux@linux.com',
+            'email_verified_at'=>'',
+            'birthday'=>'2020/05/14',
+            'password'=>'himitu',
         ];
         DB::table('users')->insert($param);
     }

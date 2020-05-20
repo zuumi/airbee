@@ -20,6 +20,6 @@ Route::get('/', function () {
 Route::get('/admin/login','AdminController@index');
 Route::post('/admin','AdminController@login');
 Route::get('/admin/logout','AdminController@logout');
-//河住圭紀 追加分 エンド
 Route::get('/admin/userlist','AdminController@usershow');
 Route::get('/admin/innlist','AdminController@innshow');
+//河住圭紀 追加分 エンド

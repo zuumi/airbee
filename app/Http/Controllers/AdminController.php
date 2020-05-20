@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -41,7 +42,8 @@ class AdminController extends Controller
     //河住圭紀 追加分  エンド
     public function usershow(Request $request)
     {
-        return view('user.show');
+        $param = User::orderBy('name','asc');
+        return view('user.show',['lists'=>$param]);
     }
 
     public function innshow(Request $request)
