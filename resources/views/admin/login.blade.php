@@ -13,7 +13,7 @@
         <form action="/admin" method="post">
             @csrf
             <tr><td>Eメール</td><td><input type="text" name="mail"></td></tr>
-            <tr><td>PASS</td><td><input type="text" name="password"></td></tr>
+            <tr><td>PASS</td><td><input type="password" name="password"></td></tr>
             <tr>
                 <td></td><td></td><td><input type="submit" value="ログイン"></td>
             </tr>

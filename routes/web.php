@@ -21,6 +21,21 @@ Route::get('/admin/login','AdminController@index');
 Route::post('/admin','AdminController@login');
 Route::get('/admin','AdminController@back');
 Route::get('/admin/logout','AdminController@logout');
-Route::get('/admin/userlist','AdminController@usershow');
-Route::get('/admin/innlist','AdminController@innshow');
+Route::get('/admin/userlist','UserController@show');
+Route::get('/admin/innlist','AdminController@show');
+Route::get('/admin/usershow','UserController@search');
 //河住圭紀 追加分 エンド
+
+//建部日向　追加分　スタート
+Route::get('/inn/show', 'AdminController@show');
+Route::post('/inn/show', 'AdminController@search');
+//建部日向　追加分　エンド
+
+//大内千夏 追加分 スタート
+Route::get('user/auth','UserController@index');
+Route::post('user/auth','UserController@post');
+//大内千夏 追加分 エンド
+
+// Auth::routes();
+//
+// Route::get('/home', 'HomeController@index')->name('home');

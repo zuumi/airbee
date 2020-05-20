@@ -67,6 +67,7 @@
         <div class="flex-center position-ref full-height">
             <div class="top-right links">
                     <a href="{{ url('/admin/login') }}">管理者画面</a>
+                    <a href="{{ url('/user/auth') }}">会員画面</a>
             </div>
             <div class="content">
                 <div class="title m-b-md">

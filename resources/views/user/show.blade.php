@@ -5,6 +5,15 @@
 @section('menubar')
     @parent
     <p>Userリスト画面です。</p>
+    <table>
+        <tr>
+            <form action="/admin/usershow" method="get">
+                @csrf
+                <td><input type="text" name="keyword" value="{{ old('keyword')}}"placeholder="キーワードを入力してください。"></td>
+                <td><input type="submit" value="検索"></td>
+            </form>
+        </tr>
+    </table>
 @endsection
 
 @section('content')
@@ -17,7 +26,10 @@
     </tr>
     @foreach($lists as $li)
         <tr>
-            <td>{{$li->family_name}}</td>
+            <td>{{$li->familyname}}{{$li->firstname}}</td>
+            <td>{{$li->postal}}</td><td>{{$li->address}}</td>
+            <td>{{$li->tel}}</td><td>{{$li->email}}</td>
+            <td>{{$li->birthday}}</td>
         </tr>
     @endforeach
 </table>

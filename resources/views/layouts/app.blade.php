@@ -34,7 +34,7 @@
 </head>
 <body>
 <header>
-    <h2><a href="{{ url('/admin') }}" style="color:white; text-decoration: none;">@yield('title')</a></h2>
+    <h2>@yield('title')</h2>
 </header>
 <main>
     @section('menubar')

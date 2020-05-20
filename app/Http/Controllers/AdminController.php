@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+//建部日向 追加分 start
 use App\User;
+//建部日向 追加分 end
+
+//河住圭紀 追加分 start
+use App\Inn;
+//河住圭紀 追加分 end
 
 class AdminController extends Controller
 {
-    //河住圭紀 追加分　スタート
+    //河住圭紀 追加分 スタート
     public function index(Request $request)
     {
         return view('admin.login');
@@ -30,6 +37,19 @@ class AdminController extends Controller
             exit;
         }
     }
+    public function back(Request $request)
+    {
+        session_start();
+        if('aribee@airbee.com'== $_SESSION['mail'] && 'himitu'==$_SESSION['password'])
+        {
+            return view('admin.index');
+        }else {
+            unset($_SESSION['mail']);
+            unset($_SESSION['password']);
+            return view('admin.login');
+            exit;
+        }
+    }
 
     public function logout(Request $request)
     {
@@ -39,17 +59,22 @@ class AdminController extends Controller
             return view('admin.login');
             exit;
     }
-    //河住圭紀 追加分  エンド
-    public function usershow(Request $request)
+    //河住圭紀 追加分 エンド
+
+    //建部日向　追加分　スタート
+    public function show(Request $request)
     {
-        $param = User::orderBy('name','asc');
-        return view('user.show',['lists'=>$param]);
+      $items = Inn::all();
+      return view('inn.index', ['items' => $items], ['input' => '']);
     }
 
-    public function innshow(Request $request)
+    public function search(Request $request)
     {
-        return view('inn.show');
+      $item = Inn::find($request->input);
+      $param = ['input' => $request->input, 'item' => $item];
+      return view('inn.show', $param);
     }
+    //建部日向　追加分　エンド
 
     public function add(Request $request)
     {
