@@ -12,6 +12,7 @@ class UserController extends Controller
     //大内千夏 追加分 スタート && 河住圭紀　更新箇所
     public function index(Request $request)
     {
+
         $param=['message'=>'ログインしてください。'];
         return view('user.login',$param);
     }

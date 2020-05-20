@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 //建部日向 追加分 start
 use App\User;
 //建部日向 追加分 end
-
 //河住圭紀 追加分 start
+use Illuminate\Support\Facades\DB;
 use App\Inn;
 //河住圭紀 追加分 end
 
 class AdminController extends Controller
 {
+    protected static $delete = true;
     //河住圭紀 追加分 スタート
     public function index(Request $request)
     {
@@ -98,12 +99,20 @@ class AdminController extends Controller
 
     public function del(Request $request)
     {
+        $param = DB::table('inns')->where('id',$request->id)->first();
+        return view('inn.del',['items'=>$param]);
+    }
 
+    public function delconfirm(Request $request)
+    {
+        $param = DB::table('inns')->where('id',$request->id)->first();
+        return view('inn.del_confirm',['items'=>$param]);
     }
 
     public function remove(Request $request)
     {
-
+        DB::table('inns')->where('id',$request->id)->delete();
+        return view('inn.del_done');
     }
 
 }

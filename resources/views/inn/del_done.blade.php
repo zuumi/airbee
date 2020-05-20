@@ -1,10 +1,11 @@
-@extends('layouts.helloapp')
+@extends('layouts.app')
 
-@section('title','Add')
+@section('title','DELETE')
 
 @section('menubar')
     @parent
-    新規作成
+    完全に削除されました。
+    <a href="">ホームに戻る</a>
 @endsection
 
 @section('content')

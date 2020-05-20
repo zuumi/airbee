@@ -35,7 +35,7 @@
       <td>{{$item->mail}}</td>
       <!-- 河住圭紀　追加　start -->
       <td><a href="">更新</a></td>
-      <td><a href="">削除</a></td>
+      <td><a href="/inn/del/{{$item->id}}">削除</a></td>
       <!-- 河住圭紀　追加　end -->
     </tr>
   @endforeach
