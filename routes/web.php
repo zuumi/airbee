@@ -31,7 +31,6 @@ Route::post('/inn/delconfirm/{id}','AdminController@delconfirm');
 Route::post('/inn/del','AdminController@remove');
 Route::get('/inn/edit/{id}','AdminController@edit');
 Route::post('/inn/edit','AdminController@update');
-
 //河住圭紀 追加分 エンド 0521
 
 //建部日向　追加分　スタート 0520
