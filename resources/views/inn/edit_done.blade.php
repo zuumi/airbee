@@ -4,8 +4,8 @@
 
 @section('menubar')
     @parent
-    更新完了ページ
-    <a href="{{ url('/inn/show') }}">ホームに戻る</a>
+    更新完了しました。
+    <a style="text-decoration:none; border:1px black solid;" href="{{ url('/inn/show') }}">ホームに戻る</a>
 @endsection
 
 @section('content')
