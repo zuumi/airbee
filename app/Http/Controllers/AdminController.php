@@ -77,6 +77,23 @@ class AdminController extends Controller
     }
     //建部日向　追加分　エンド
 
+    //河住圭紀　引っ越し先　スタート
+    public function usershow(Request $request)
+    {
+        $param = User::all();
+        return view('user.show',['lists'=>$param]);
+    }
+
+    public function usersearch(Request $request)
+    {
+        $key = $request->keyword;
+        $items = User::where('firstname','like','%'.$key.'%')
+                    ->orWhere('familyname','like','%'.$key.'%')
+                    ->get();
+        return view('user.show',['lists'=>$items]);
+    }
+    //河住圭紀　引っ越し箇所　エンド
+
     public function add(Request $request)
     {
 

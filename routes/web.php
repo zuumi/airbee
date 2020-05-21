@@ -21,9 +21,9 @@ Route::get('/admin/login','AdminController@index');
 Route::post('/admin','AdminController@login');
 Route::get('/admin','AdminController@back');
 Route::get('/admin/logout','AdminController@logout');
-Route::get('/admin/userlist','UserController@show');
 Route::get('/admin/innlist','AdminController@show');
-Route::get('/admin/usershow','UserController@search');
+Route::get('/admin/userlist','AdminController@usershow');
+Route::get('/admin/usershow','AdminController@usersearch');
 //河住圭紀 追加分 エンド 0520
 //河住圭紀 追加分 スタート 0521
 Route::get('/inn/del/{id}','AdminController@del');
@@ -32,6 +32,7 @@ Route::post('/inn/del','AdminController@remove');
 Route::get('/inn/edit/{id}','AdminController@edit');
 Route::post('/inn/edit','AdminController@update');
 //河住圭紀 追加分 エンド 0521
+
 
 //建部日向　追加分　スタート 0520
 Route::get('/inn/show', 'AdminController@show');
