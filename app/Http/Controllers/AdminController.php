@@ -124,8 +124,8 @@ class AdminController extends Controller
 
     //河住圭紀 追加 0521
     public function edit(Request $request)
-    $param = DB::table('inns')->where('id',$request->id)->first();
     {
+        $param = DB::table('inns')->where('id',$request->id)->first();
         return view('inn.edit',['items'=>$param]);
     }
 
