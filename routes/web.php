@@ -39,6 +39,13 @@ Route::get('/inn/show', 'AdminController@show');
 Route::post('/inn/show', 'AdminController@search');
 //建部日向　追加分　エンド 0520
 
+//建部日向　追加分　スタート　0521
+Route::get('inn/add', 'AdminController@add');
+Route::post('inn/add_confirm', 'AdminController@add_confirm');
+Route::post('inn/add', 'AdminController@create');
+Route::get('inn/add_done', 'AdminController@add_done');
+//建部日向　追加分　エンド　0521
+
 //大内千夏 追加分 スタート 0520
 Route::get('user/auth','UserController@index');
 Route::post('user/auth','UserController@post');

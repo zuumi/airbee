@@ -94,15 +94,29 @@ class AdminController extends Controller
     }
     //河住圭紀　引っ越し箇所　エンド
 
-    public function add(Request $request)
-    {
+    //建部日向　追加分　スタート　0521
 
+    public function add_confirm(Request $request)
+    {
+    $inn = new Inn($request->all());
+    $request->session()->put('inn', $inn);
+    return view('inn.add_confirm', compact('inn'));
     }
 
     public function create(Request $request)
     {
-
+    $inn = $request->session()->get('inn');
+    $inn->save();
+    return redirect('inn/add_done');
     }
+
+    public function add_done(Request $request)
+    {
+    $inn = $request->session()->get('inn');
+    return view('inn.add_done', compact('inn'));
+    }
+    //建部日向　追加分　エンド　0521
+
     //河住圭紀 追加 0521
     public function edit(Request $request)
     {
