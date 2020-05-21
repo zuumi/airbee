@@ -5,7 +5,7 @@
 @section('menubar')
     @parent
     完全に削除されました。
-    <a href="">ホームに戻る</a>
+    <a href="{{ url('/inn/show') }}">ホームに戻る</a>
 @endsection
 
 @section('content')
