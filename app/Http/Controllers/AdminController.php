@@ -95,11 +95,11 @@ class AdminController extends Controller
 
     public function update(Request $request)
     {
-        $items = [
+        $param = [
             'name'=>$request->name
         ];
-        $param = DB::table('inns')->where('id',$items)->first();
-        return view('inn.edit_done',['items',$param]);
+        DB::table('inns')->where('id',$request->id)->update($param);
+        return view('inn.edit_done');
     }
 
     public function del(Request $request)
