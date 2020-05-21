@@ -86,7 +86,7 @@ class AdminController extends Controller
     {
 
     }
-
+    //河住圭紀 追加 0521
     public function edit(Request $request)
     {
         $param = DB::table('inns')->where('id',$request->id)->first();
@@ -96,7 +96,13 @@ class AdminController extends Controller
     public function update(Request $request)
     {
         $param = [
-            'name'=>$request->name
+            'name'=>$request->name,
+            'postal'=>$request->postal,
+            'address'=>$request->address,
+            'checkintime'=>$request->checkintime,
+            'checkouttime'=>$request->checkouttime,
+            'code'=>$request->code,
+            'mail'=>$request->mail
         ];
         DB::table('inns')->where('id',$request->id)->update($param);
         return view('inn.edit_done');
@@ -119,5 +125,5 @@ class AdminController extends Controller
         DB::table('inns')->where('id',$request->id)->delete();
         return view('inn.del_done');
     }
-
+    //河住圭紀 追加 0521
 }
