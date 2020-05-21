@@ -9,14 +9,7 @@
 @endsection
 
 @section('content')
-<table>
-    この内容で更新しました。
-    <table>
-        <tr>
-            <td>{{$items->name}}</td>
-        </tr>
-    </table>
-</table>
+
 @endsection
 
 @section('footer')
