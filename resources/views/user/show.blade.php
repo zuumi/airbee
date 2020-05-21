@@ -4,9 +4,13 @@
 
 @section('menubar')
     @parent
-    <p>Userリスト画面です。</p>
+    メニュー
     <table>
         <tr>
+            <!-- 河住圭紀 更新部分 start -->
+            <td><a href="{{ url('/admin/userlist') }}">会員情報を操作</a></td>
+            <td><a href="{{ url('/inn/show') }}">宿情報を操作</a></td>
+            <!-- 河住圭紀 更新部分 end -->
             <form action="/admin/usershow" method="get">
                 @csrf
                 <td><input type="text" name="keyword" value="{{ old('keyword')}}"placeholder="キーワードを入力してください。"></td>
