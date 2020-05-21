@@ -29,8 +29,10 @@ Route::get('/admin/usershow','UserController@search');
 Route::get('/inn/del/{id}','AdminController@del');
 Route::post('/inn/delconfirm/{id}','AdminController@delconfirm');
 Route::post('/inn/del','AdminController@remove');
-//河住圭紀 追加分 エンド 0521
+Route::get('/inn/edit/{id}','AdminController@edit');
+Route::post('/inn/edit','AdminController@update');
 
+//河住圭紀 追加分 エンド 0521
 
 //建部日向　追加分　スタート 0520
 Route::get('/inn/show', 'AdminController@show');

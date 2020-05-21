@@ -89,12 +89,17 @@ class AdminController extends Controller
 
     public function edit(Request $request)
     {
-
+        $param = DB::table('inns')->where('id',$request->id)->first();
+        return view('inn.edit',['items'=>$param]);
     }
 
     public function update(Request $request)
     {
-
+        $items = [
+            'name'=>$request->name
+        ];
+        $param = DB::table('inns')->where('id',$items)->first();
+        return view('inn.edit_done',['items',$param]);
     }
 
     public function del(Request $request)
