@@ -77,7 +77,7 @@ class AdminController extends Controller
     }
     //建部日向　追加分　エンド
 
-    //河住圭紀　引っ越し先　スタート
+    //河住圭紀　引っ越し先　スタート 0521
     public function usershow(Request $request)
     {
         $param = User::all();
@@ -92,9 +92,14 @@ class AdminController extends Controller
                     ->get();
         return view('user.show',['lists'=>$items]);
     }
-    //河住圭紀　引っ越し箇所　エンド
+    //河住圭紀　引っ越し箇所　エンド 0521
 
     //建部日向　追加分　スタート　0521
+
+    public function add(Request $request)
+    {
+      return view('inn.add');
+    }
 
     public function add_confirm(Request $request)
     {
@@ -119,8 +124,8 @@ class AdminController extends Controller
 
     //河住圭紀 追加 0521
     public function edit(Request $request)
+    $param = DB::table('inns')->where('id',$request->id)->first();
     {
-        $param = DB::table('inns')->where('id',$request->id)->first();
         return view('inn.edit',['items'=>$param]);
     }
 
