@@ -5,18 +5,28 @@
 @section('menubar')
     @parent
     メニュー
-    <a href="">会員情報を操作</a>
-    <a href="">宿情報を操作</a>
+    <!-- 河住圭紀 更新部分 start -->
+    <table>
+        <tr>
+            <td><a href="{{ url('/admin/userlist') }}">会員情報を操作</a></td>
+            <td><a href="{{ url('/inn/show') }}">宿情報を操作</a></td>
+            <td>
+            <form action="/inn/show" method="post">
+                @csrf
+                <div class="input_wrap">
+                    <input class="inputtext" type="text" name="input" value="{{$input}}">
+                    <input type="submit" value="検索">
+                </div>
+            </form>
+            <td>
+        </tr>
+    </table>
+    <!-- 河住圭紀 更新部分 end -->
 @endsection
 
 @section('content')
-  <form action="/inn/show" method="post">
-    @csrf
-    <div class="input_wrap">
-    <input class="inputtext" type="text" name="input" value="{{$input}}">
-    <input type="submit" value="検索">
-    </div>
-  </form>
+<!-- 会員とメニューの見た目を揃えるため、menubarに移しました。 -->
+
   <table border="1">
     <tr>
       <th>宿ID</th><th>宿名</th><th>郵便番号</th><th>住所</th>
