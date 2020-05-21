@@ -81,7 +81,7 @@ class AdminController extends Controller
     public function usershow(Request $request)
     {
         $param = User::all();
-        return view('user.show',['lists'=>$param]);
+        return view('admin.show',['lists'=>$param]);
     }
 
     public function usersearch(Request $request)
@@ -90,7 +90,7 @@ class AdminController extends Controller
         $items = User::where('firstname','like','%'.$key.'%')
                     ->orWhere('familyname','like','%'.$key.'%')
                     ->get();
-        return view('user.show',['lists'=>$items]);
+        return view('admin.show',['lists'=>$items]);
     }
     //河住圭紀　引っ越し箇所　エンド 0521
 

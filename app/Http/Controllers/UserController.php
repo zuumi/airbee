@@ -52,7 +52,12 @@ class UserController extends Controller
     //     return view('user.show',['lists'=>$items]);
     // }
     //河住圭紀 引っ越し箇所　end
-
+    public function detail()
+    {
+        $id = $request->id;
+        $param = DB::table('inns')->where('id',$id)->first();
+        return view('resevation.index',['items'=>$param]);
+    }
     public function edit()
     {
 
