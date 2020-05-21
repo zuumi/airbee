@@ -4,7 +4,7 @@
 
 @section('menubar')
     @parent
-    ログインページページ
+    <a href="url('')">会員登録する</a>
 @endsection
 
 @section('content')
