@@ -6,9 +6,11 @@
     @parent
     メニュー
     <a href="/user/auth">会員画面</a>
+    <p>宿一覧</p>
 @endsection
 
 @section('content')
+
 <table>
   <form action="/user/inn/show" method="post">
     @csrf

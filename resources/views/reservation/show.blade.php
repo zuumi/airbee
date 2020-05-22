@@ -6,6 +6,7 @@
     @parent
     メニュー
     <a href="/user/auth">会員画面</a>
+    <p>検索結果</p>
 @endsection
 
 @section('content')
