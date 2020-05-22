@@ -93,9 +93,43 @@ class AdminController extends Controller
         return view('admin.show',['lists'=>$items]);
     }
     //河住圭紀　引っ越し箇所　エンド 0521
+    //河住圭紀　追加 start 0522
+    public function useredit(Request $request)
+    {
+        $id = $request->id;
+        $param = User::where('id',$id)->first();
+        return view('admin.edit',['items' => $param]);
+    }
+    public function userupdate(Request $request)
+    {
+        $id = $request->id;
+        $param = [
+            'firstname'=>$request->firstname
+        ];
+        User::where('id',$id)->update($param);
+        return view('admin.edit_done');
+    }
+    public function userdel(Request $request)
+    {
+        $id = $request->id;
+        $param = User::where('id',$id)->first();
+        return view('admin.del',['items' => $param]);
+    }
+    public function userdel_confirm(Request $request)
+    {
+        $id = $request->id;
+        $param = User::where('id',$id)->first();
+        return view('admin.del_confirm',['items' => $param]);
+    }
+    public function userremove(Request $request)
+    {
+        $id = $request->id;
+        $param =User::where('id',$id)->delete();
+        return view('admin.del_done');
+    }
+    //河住圭紀　追加 start 0522
 
     //建部日向　追加分　スタート　0521
-
     public function add(Request $request)
     {
       return view('inn.add');

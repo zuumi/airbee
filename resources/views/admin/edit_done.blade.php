@@ -1,10 +1,11 @@
-@extends('layouts.helloapp')
+@extends('layouts.app')
 
 @section('title','Edit')
 
 @section('menubar')
     @parent
-    更新ページ
+    更新完了しました。
+    <a href="{{ url('/admin/userlist') }}">会員情報を操作</a>
 @endsection
 
 @section('content')

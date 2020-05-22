@@ -32,7 +32,13 @@ Route::post('/inn/del','AdminController@remove');
 Route::get('/inn/edit/{id}','AdminController@edit');
 Route::post('/inn/edit','AdminController@update');
 //河住圭紀 追加分 エンド 0521
-
+// 河住圭紀 start 0522
+Route::get('/admin/user/edit/{id}','AdminController@useredit');
+Route::post('/admin/user/edit/','AdminController@userupdate');
+Route::get('/admin/user/del/{id}','AdminController@userdel');
+Route::post('/admin/user/del/{id}','AdminController@userdel_confirm');
+Route::post('/admin/user/del/','AdminController@userremove');
+//河住圭紀 end 0522
 
 //建部日向　追加分　スタート 0520
 Route::get('/inn/show', 'AdminController@show');
@@ -50,3 +56,8 @@ Route::get('inn/add_done', 'AdminController@add_done');
 Route::get('user/auth','UserController@index');
 Route::post('user/auth','UserController@post');
 //大内千夏 追加分 エンド 0520
+// 大内 0521 start
+Route::get('/user/inn/show','UserController@shows');
+Route::post('/user/inn/show','UserController@searches');
+Route::get('/user/inn/detail/{id}','UserController@detail');
+//大内 0521 end

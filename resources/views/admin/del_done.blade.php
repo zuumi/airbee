@@ -1,10 +1,11 @@
-@extends('layouts.helloapp')
+@extends('layouts.app')
 
-@section('title','Add')
+@section('title','DELETE')
 
 @section('menubar')
     @parent
-    新規作成
+    更新完了しました。
+    <a href="{{ url('/admin/userlist') }}">会員情報を操作</a>
 @endsection
 
 @section('content')

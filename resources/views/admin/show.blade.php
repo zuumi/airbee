@@ -21,12 +21,12 @@
 @endsection
 
 @section('content')
-<table>
+<table border="1">
     <tr>
         <th>名前</th><th>郵便番号</th>
         <th>住所</th><th>電話番号</th>
         <th>Eメールアドレス</th>
-        <th>生年月日</th>
+        <th>生年月日</th><th></th><th></th>
     </tr>
     @foreach($lists as $li)
         <tr>
@@ -34,6 +34,10 @@
             <td>{{$li->postal}}</td><td>{{$li->address}}</td>
             <td>{{$li->tel}}</td><td>{{$li->email}}</td>
             <td>{{$li->birthday}}</td>
+            <!-- 河住圭紀　更新　start 0522 -->
+            <td><a href="/admin/user/edit/{{$li->id}}">更新</a></td>
+            <td><a href="/admin/user/del/{{$li->id}}">削除</a></td>
+            <!-- 河住圭紀　更新　end 0522 -->
         </tr>
     @endforeach
 </table>
