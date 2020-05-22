@@ -8,7 +8,13 @@
 @endsection
 
 @section('content')
-<p>{{$items->name}}</p>
+<p>{{$inn->name}}</p>
+<form action="/user/inn/reservation" method="get">
+    @csrf
+    <input type="hidden" name="innid" value="{{$inn->id}}">
+    <input type="hidden" name="userid" value="{{$user}}">
+    <input type="submit" value="この宿を予約する">
+</form>
 @endsection
 
 @section('footer')

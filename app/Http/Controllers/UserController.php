@@ -67,8 +67,11 @@ class UserController extends Controller
     public function detail(Request $request)
     {
         $id = $request->id;
-        $param = DB::table('inns')->where('id',$id)->first();
-        return view('reservation.inn',['items'=>$param]);
+        $inn = DB::table('inns')->where('id',$id)->first();
+        session_start();
+        $useremail = $_SESSION['email'];
+        $userid = User::where('email',$useremail)->value('id');
+        return view('reservation.inn',['inn'=>$inn,'user'=>$userid]);
     }
 
     //大内追加分　end
@@ -135,6 +138,7 @@ class UserController extends Controller
         User::where('id',$request->id)->update($param);
         return view('user.edit_done');
     }
+    // 河住圭紀　追加 0522
 
     public function del()
     {
@@ -145,5 +149,6 @@ class UserController extends Controller
     {
 
     }
-    // 河住圭紀　追加 0522
+
+
 }
