@@ -8,6 +8,13 @@ class Reservation extends Model
 {
     protected $guarded = array('id');
 
+    protected $rules =[
+        'user_id'=>'required',
+        'inn_id'=>'required',
+        'firstday'=>'date|required',
+        'endday'=>'date|required',
+        'guestscount'=>'interger|min:2|max:5'
+    ];
 
     public function inn()
     {

@@ -173,6 +173,9 @@ class AdminController extends Controller
 
     public function add_confirm(Request $request)
     {
+    //バリデーション追加　（全2か所）　0522　建部
+    $this->validate($request, Inn::$rules, Inn::$messages);
+    //----------------------------------
     $inn = new Inn($request->all());
     $request->session()->put('inn', $inn);
     return view('inn.add_confirm', compact('inn'));
@@ -210,6 +213,9 @@ class AdminController extends Controller
             'code'=>$request->code,
             'mail'=>$request->mail
         ];
+        //バリデーション追加　（全2か所）　0522　建部
+       $this->validate($request, Inn::$rules, Inn::$messages);
+       //----------------------------------
         DB::table('inns')->where('id',$request->id)->update($param);
         return view('inn.edit_done');
     }
