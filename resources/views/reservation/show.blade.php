@@ -9,7 +9,6 @@
 @endsection
 
 @section('content')
-<table>
   <form action="/user/inn/show" method="post">
     @csrf
     <div class="input_wrap">
@@ -17,10 +16,9 @@
     <input type="submit" value="検索">
     </div>
   </form>
-  @foreach ($items as $item)
-    <p><a href="/user/inn/detail/{{$item->id}}">{{$item->name}}</a></p>
-  @endforeach
-  </table>
+    @foreach($item as $i)
+      <p>・<a href="/user/inn/detail/{{$i->id}}">{{$i->name}}</a></p>
+    @endforeach
 @endsection
 
 @section('footer')

@@ -4,9 +4,7 @@
 
 @section('menubar')
     @parent
-    メニュー
-    <a href="">会員情報を操作</a>
-    <a href="">宿情報を操作</a>
+ 登録完了画面
 @endsection
 
 @section('content')
