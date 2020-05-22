@@ -9,6 +9,7 @@
 
 @section('content')
 <p>予約が完了しました。</p>
+<a href="{{url('/user/inn/show')}}">ホームへ</a>
 @endsection
 
 @section('footer')
