@@ -61,3 +61,10 @@ Route::get('/user/inn/show','UserController@shows');
 Route::post('/user/inn/show','UserController@searches');
 Route::get('/user/inn/detail/{id}','UserController@detail');
 //大内 0521 end
+//河住 0522 start
+Route::get('user/auth','UserController@home');
+Route::get('user/logout','UserController@logout');
+Route::get('user/edit/{id}','UserController@edit');
+Route::post('user/edit/{id}','UserController@edit_confirm');
+Route::post('user/edit','UserController@update');
+//河住 0522 end

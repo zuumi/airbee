@@ -30,32 +30,26 @@ class UserController extends Controller
         if($ide==$idp)
         {
             $msg='ログインしました。';
-            return view('user.index',['message'=>$msg]);
+
+            //　河住圭紀　更新 0522 start
+            session_start();
+            $_SESSION['email']=DB::table('users')->where('email',$email)->value('email');
+            $_SESSION['password']=DB::table('users')->where('password',$password)->value('password');
+            $param = DB::table('users')->where('id',$idp)->first();
+            return view('user.index',['message'=>$msg,'items'=>$param]);
+            //　河住圭紀　更新 0522 end
         }
         else
         {
             $msg='ログイン失敗しました';
+            //　河住圭紀　更新 0522 start
+            unset($_SESSION['email']);
+            unset($_SESSION['password']);
+            //　河住圭紀　更新 0522 end
             return view('user.login',['message'=>$msg]);
         }
     }
     //大内千夏 追加分 エンド　&& 河住圭紀　更新箇所
-
-    //河住圭紀　引っ越し箇所 start
-    // public function show(Request $request)
-    // {
-    //     $param = User::all();
-    //     return view('user.show',['lists'=>$param]);
-    // }
-    //
-    // public function search(Request $request)
-    // {
-    //     $key = $request->keyword;
-    //     $items = User::where('firstname','like','%'.$key.'%')
-    //                 ->orWhere('familyname','like','%'.$key.'%')
-    //                 ->get();
-    //     return view('user.show',['lists'=>$items]);
-    // }
-    //河住圭紀 引っ越し箇所　end
 
 //大内追加分　start
     public function shows(Request $request)
@@ -78,14 +72,68 @@ class UserController extends Controller
     }
 
     //大内追加分　end
-    public function edit()
-    {
 
+    // 河住圭紀　追加 0522
+    public function home(Request $request)
+    {
+        session_start();
+        if(isset($_SESSION['email']) && isset($_SESSION['email'])){
+            $email = $_SESSION['email'];
+            $param = User::where('email',$email)->first();
+            return view('user.index',['items'=>$param]);
+        }else{
+            unset($_SESSION['email']);
+            unset($_SESSION['password']);
+            return view('user.login');
+            exit;
+        }
+    }
+    public function logout(Request $request)
+    {
+        session_start();
+        unset($_SESSION['email']);
+        unset($_SESSION['password']);
+        return view('user.login');
+        exit;
     }
 
-    public function update()
+    public function edit(Request $request)
     {
+        $id = $request->id;
+        $param = User::where('id',$id)->first();
+        return view('user.edit',['items'=>$param]);
+    }
+    public function edit_confirm(Request $request)
+    {
+        $param = [
+            'id'=>$request->id,
+            'familyname'=>$request->familyname,
+            'firstname'=>$request->firstname,
+            'postal'=>$request->postal,
+            'address'=>$request->address,
+            'tel'=>$request->tel,
+            'email'=>$request->email,
+            'birthday'=>$request->birthday,
+            'password'=>$request->password
+        ];
+        return view('user.edit_confirm',$param);
+    }
 
+    public function update(Request $request)
+    {
+        $param = [
+            'id'=>$request->id,
+            'familyname'=>$request->familyname,
+            'firstname'=>$request->firstname,
+            'postal'=>$request->postal,
+            'address'=>$request->address,
+            'tel'=>$request->tel,
+            'email'=>$request->email,
+            'birthday'=>$request->birthday,
+            'password'=>$request->password
+        ];
+        User::where('id',$request->id)->update($param);
+        return view('user.edit_done');
     }
 
     public function del()
@@ -97,4 +145,5 @@ class UserController extends Controller
     {
 
     }
+    // 河住圭紀　追加 0522
 }
