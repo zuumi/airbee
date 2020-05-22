@@ -93,6 +93,34 @@ class AdminController extends Controller
         return view('admin.show',['lists'=>$items]);
     }
     //河住圭紀　引っ越し箇所　エンド 0521
+
+    //大内千夏追加分　 start 0522
+    public function useradd(Request $request)
+    {
+      return view('admin.register');
+    }
+
+    public function register_confirm(Request $request)
+    {
+      $admin = new Admin($request->all());
+      $request->session()->put('admin', $admin);
+      return view('admin.register_confirm', compact('admin'));
+    }
+
+    public function register_create(Request $request) {
+      $admin = $request->session()->get('admin');
+      $admin->save();
+      return redirect('/admin/register_done');
+    }
+
+    public function register_done(Request $request)
+    {
+      $admin = $request->session()->get('admin');
+      return view('admin.register_done', compact('admin'));
+    }
+
+    //大内千夏　追加分 end 0522
+
     //河住圭紀　追加 start 0522
     public function useredit(Request $request)
     {

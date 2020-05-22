@@ -61,10 +61,26 @@ Route::get('/user/inn/show','UserController@shows');
 Route::post('/user/inn/show','UserController@searches');
 Route::get('/user/inn/detail/{id}','UserController@detail');
 //大内 0521 end
+
+//大内千夏 追加分 スタート 0522
+Route::get('/admin/register', 'AdminController@useradd');
+Route::post('/admin/register_confirm', 'AdminController@register_confirm');
+Route::post('/admin/register', 'AdminController@register_create');
+Route::get('/admin/register_done', 'AdminController@register_done');
+
+Route::get('/user/del/{id}','UserController@del');
+Route::post('/user/delconfirm/{id}','UserController@delconfirm');
+Route::post('/user/del','UserController@remove');
+//大内千夏 追加分 エンド　0522
+
 //河住 0522 start
 Route::get('user/auth','UserController@home');
 Route::get('user/logout','UserController@logout');
 Route::get('user/edit/{id}','UserController@edit');
 Route::post('user/edit/{id}','UserController@edit_confirm');
 Route::post('user/edit','UserController@update');
+
+Route::get('user/inn/reservation','ReservationController@index');
+Route::post('user/inn/reservation','ReservationController@add');
+Route::post('user/inn/reservation_done','ReservationController@create');
 //河住 0522 end
