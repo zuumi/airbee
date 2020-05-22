@@ -132,7 +132,15 @@ class AdminController extends Controller
     {
         $id = $request->id;
         $param = [
-            'firstname'=>$request->firstname
+            'id'=>$request->id,
+            'familyname'=>$request->familyname,
+            'firstname'=>$request->firstname,
+            'postal'=>$request->postal,
+            'address'=>$request->address,
+            'tel'=>$request->tel,
+            'email'=>$request->email,
+            'birthday'=>$request->birthday,
+            'password'=>$request->password
         ];
         User::where('id',$id)->update($param);
         return view('admin.edit_done');
