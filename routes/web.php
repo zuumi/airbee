@@ -52,10 +52,10 @@ Route::post('inn/add', 'AdminController@create');
 Route::get('inn/add_done', 'AdminController@add_done');
 //建部日向　追加分　エンド　0521
 
-//大内千夏 追加分 スタート 0520
-Route::get('user/auth','UserController@index');
+//大内千夏 追加分 スタート 0520   ←更新　河住　0525
+Route::get('user/login','UserController@index');
 Route::post('user/auth','UserController@post');
-//大内千夏 追加分 エンド 0520
+//大内千夏 追加分 エンド 0520     ←更新　河住　0525
 // 大内 0521 start
 Route::get('/user/inn/show','UserController@shows');
 Route::post('/user/inn/show','UserController@searches');
@@ -74,7 +74,8 @@ Route::post('/user/del','UserController@remove');
 //大内千夏 追加分 エンド　0522
 
 //河住 0522 start
-Route::get('user/auth','UserController@home');
+Route::get('/user/auth','UserController@home');
+
 Route::get('user/logout','UserController@logout');
 Route::get('user/edit/{id}','UserController@edit');
 Route::post('user/edit/{id}','UserController@edit_confirm');
