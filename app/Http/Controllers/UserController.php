@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function post(Request $request)
     {
-        //　河住圭紀　更新(全３か所１) 0525 start
+        //　河住圭紀　更新(全4か所１) 0525 start
         $email=$request->email;
         $userpass = User::where('email',$email)->value('password');
         $postpass = $request->password;
@@ -37,7 +37,7 @@ class UserController extends Controller
         }
         else
         {
-            //　河住圭紀　更新(全３か所２) 0525 start
+            //　河住圭紀　更新(全4か所２) 0525 start
             if(isset($_SESSION['email']))
             {
                 unset($_SESSION['email']);
@@ -54,7 +54,7 @@ class UserController extends Controller
 
 //大内追加分　start
 
-    //河住　0525 (全３か所３)start
+    //河住　0525 (全4か所３)start
     public function shows(Request $request)
    {
      $items = Inn::all();
@@ -69,16 +69,17 @@ class UserController extends Controller
      $items = Inn::where('name','like','%'.$request->input.'%')->get();
      return view('reservation.index',  ['input' => $request->input],[ 'items' => $items]);
    }
-
+   // 河住　更新（全4箇所４）0525
     public function detail(Request $request)
     {
         $id = $request->id;
-        $inn = DB::table('inns')->where('id',$id)->first();
+        $inn = Inn::where('id',$id)->first();
         session_start();
-        $useremail = $_SESSION['email'];
+        $useremail = $request->session()->get('email');
         $userid = User::where('email',$useremail)->value('id');
         return view('reservation.inn',['inn'=>$inn,'user'=>$userid]);
     }
+    // 河住　更新 （全4箇所４）0525
 
     //大内追加分　end
 
