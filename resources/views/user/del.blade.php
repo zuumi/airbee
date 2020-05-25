@@ -19,7 +19,7 @@
         <tr><th>電話番号</th><td>{{$items->tel}}</td></tr>
         <tr><th>メール</th><td>{{$items->email}}</td></tr>
         <tr><th>誕生日</th><td>{{$items->birthday}}</td></tr>
-        <tr><th></th><td></td><td><input type="submit" value="削除"></td>
+        <tr><th></th><td></td><td><input type="submit" value="退会する"></td>
         </tr>
     </table>
 </form>

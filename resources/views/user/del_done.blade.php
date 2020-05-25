@@ -1,4 +1,4 @@
-@extends('layouts.helloapp')
+@extends('layouts.app')
 
 @section('title','Add')
 
@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-完全に削除されました。
+完全に退会されました。
 @endsection
 
 @section('footer')

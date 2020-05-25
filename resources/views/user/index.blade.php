@@ -12,7 +12,7 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">会員</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="/user/edit/{{$items->id}}">会員情報変更</a>
-                <a class="dropdown-item" href="#">退会</a>
+                <a class="dropdown-item" href="/user/del/{{$items->id}}">退会</a>
             </div>
         </li>
         <li class="nav-item"><a href="/user/logout" class="nav-link">ログアウト</a></li>

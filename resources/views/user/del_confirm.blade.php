@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<p>完全に削除されてしまう情報が下記になります。</p>
+<p>本当に退会しますか？下記の情報が完全に削除されます</p>
 <p></p>
 <form action="/user/del" method="post">
     @csrf
@@ -19,7 +19,7 @@
         <tr><th>電話番号</th><td>{{$items->tel}}</td></tr>
         <tr><th>メール</th><td>{{$items->email}}</td></tr>
         <tr><th>誕生日</th><td>{{$items->birthday}}</td></tr>
-        <tr><th></th><td></td><td><input type="submit" value="完全削除"></td>
+        <tr><th></th><td></td><td><input type="submit" value="確認して退会"></td>
         </tr>
     </table>
 </form>
