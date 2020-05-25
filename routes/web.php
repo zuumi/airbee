@@ -84,3 +84,8 @@ Route::get('user/inn/reservation','ReservationController@index');
 Route::post('user/inn/reservation','ReservationController@add');
 Route::post('user/inn/reservation_done','ReservationController@create');
 //河住 0522 end
+
+//チョウさん start
+Route::get('toroku', 'TorokuController@register');
+Route::post('toroku', 'TorokuController@create');
+//チョウさん end

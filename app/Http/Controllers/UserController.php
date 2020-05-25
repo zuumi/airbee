@@ -43,8 +43,14 @@ class UserController extends Controller
         {
             $msg='ログイン失敗しました';
             //　河住圭紀　更新 0522 start
-            unset($_SESSION['email']);
-            unset($_SESSION['password']);
+            if(isset($_SESSION['email']))
+            {
+                unset($_SESSION['email']);
+            }
+            if(isset($_SESSION['password']))
+            {
+                unset($_SESSION['password']);
+            }
             //　河住圭紀　更新 0522 end
             return view('user.login',['message'=>$msg]);
         }
@@ -60,8 +66,8 @@ class UserController extends Controller
 
    public function searches(Request $request)
    {
-     $item = Inn::where('name','like','%'.$request->input.'%')->get();
-     return view('reservation.show',  ['input' => $request->input],[ 'item' => $item]);
+     $items = Inn::where('name','like','%'.$request->input.'%')->get();
+     return view('reservation.index',  ['input' => $request->input],[ 'items' => $items]);
    }
 
     public function detail(Request $request)
