@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('title','Index')
 
@@ -23,4 +23,4 @@
 @endsection
 
 @section('footer')
-@endsection
+@endsection -->
