@@ -4,11 +4,11 @@
 
 @section('menubar')
     @parent
-    新規作成
+    <a href="/">ホームに戻る</a>
 @endsection
 
 @section('content')
-
+完全に削除されました。
 @endsection
 
 @section('footer')

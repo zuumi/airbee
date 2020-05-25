@@ -146,15 +146,25 @@ class UserController extends Controller
     }
     // 河住圭紀　追加 0522
 
-    public function del()
-    {
 
-    }
+        //大内千夏 追加分 start0522
+        public function del(Request $request)
+        {
+            $param = DB::table('users')->where('id',$request->id)->first();
+            return view('user.del',['items'=>$param]);
+        }
 
-    public function remove()
-    {
+        public function delconfirm(Request $request)
+        {
+            $param = DB::table('users')->where('id',$request->id)->first();
+            return view('user.del_confirm',['items'=>$param]);
+        }
 
-    }
-
+        public function remove(Request $request)
+        {
+            DB::table('users')->where('id',$request->id)->delete();
+            return view('user.del_done');
+        }
+        //大内千夏 追加分　0522
 
 }
