@@ -86,11 +86,12 @@ class UserController extends Controller
     // 河住圭紀　追加 0522
     public function home(Request $request)
     {
-        session_start();
-        if(isset($_SESSION['email']) && isset($_SESSION['email'])){
-            $email = $_SESSION['email'];
+        //河住　更新 0525 (五か所目)
+        if($request->session()->exists('email')){
+            $email = $request->session()->get('email');
             $param = User::where('email',$email)->first();
             return view('user.index',['items'=>$param]);
+            //河住　更新 0525　 (五か所目)
         }else{
             unset($_SESSION['email']);
             unset($_SESSION['password']);
@@ -143,6 +144,7 @@ class UserController extends Controller
             'birthday'=>$request->birthday,
             'password'=>$request->password
         ];
+        $this->validate($request, User::$rules,User::$message);
         User::where('id',$request->id)->update($param);
         return view('user.edit_done');
     }

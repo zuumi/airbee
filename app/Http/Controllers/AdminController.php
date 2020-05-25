@@ -142,6 +142,9 @@ class AdminController extends Controller
             'birthday'=>$request->birthday,
             'password'=>$request->password
         ];
+        // 河住　更新 0525 start
+        $this->validate($request, User::$rules,User::$message);
+        // 河住　更新 0525 end
         User::where('id',$id)->update($param);
         return view('admin.edit_done');
     }

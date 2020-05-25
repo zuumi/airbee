@@ -4,12 +4,15 @@
 
 @section('menubar')
     @parent
-    更新確認画面
-    <a href="{{url('/user/auth')}}">ホームに戻る</a>
 @endsection
 
 @section('content')
-        更新が完了しました。
+<div class="container">
+    <h4>更新確認画面</h4>
+    <a href="{{url('/user/auth')}}">ホームに戻る</a>
+    <hr>
+    <p>更新が完了しました。</p>
+</div>
 @endsection
 
 @section('footer')
