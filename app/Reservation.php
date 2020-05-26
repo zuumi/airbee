@@ -8,13 +8,20 @@ class Reservation extends Model
 {
     protected $guarded = array('id');
 
-    protected $rules =[
-        'user_id'=>'required',
-        'inn_id'=>'required',
-        'firstday'=>'date|required',
-        'endday'=>'date|required',
-        'guestscount'=>'interger|min:2|max:5'
-    ];
+    public static $rules = array(
+        'firstday' => 'required|date|after:yesterday',
+        'endday' => 'required|date|after:yesterday',
+        'guestscount' => 'required',
+    );
+
+    public static $message = array(
+        'firstday.required' => '予約日付は必須項目です。',
+        'firstday.after' => '予約日付は今日以降にしてください。',
+        'endday.required' => '予約日付は必須項目です。',
+        'endday.after' => '予約日付は今日以降にしてください。',
+        'guestscount.required' => '宿泊人数は必須です。',
+    );
+
 
     public function inn()
     {
