@@ -45,8 +45,10 @@ class User extends Model
     public static $message = array(
         'familyname.required'=>'苗字は必ず入力してください',
         'familyname.max' => '苗字は50文字以下で入力してください。',
+        'familyname.string' => 'かな、ひらがな、漢字で入力してください。',
         'firstname.required'=>'名前は必ず入力してください',
         'firstname.max' => '名前は50文字以下で入力してください。',
+        'firstname.string' => 'かな、ひらがな、漢字で入力してください。',
         'postal.required'=>'郵便局は必ず入力してください',
         'postal.regex' => '郵便番号の形式に誤りがあります。',
         'address.required'=>'住所は必ず入力してください',
@@ -57,6 +59,7 @@ class User extends Model
         'email.email'=>'メールアドレスが正しくありません',
         'email.max' => 'メールアドレスは100文字以下で入力してください。',
         'birthday.required'=>'誕生日を必ず入力してください',
+        'birthday.date'=>'正しい日付を入力してください。',
         'password.required'=>'パスワードを必ず入力してください',
         'password.max' => 'パスワードは10文字以下で入力してください。',
     );
