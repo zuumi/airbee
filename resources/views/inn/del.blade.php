@@ -21,6 +21,8 @@
             <tr><th>チェックアウト時間</th><td>{{$items->checkouttime}}</td></tr>
             <tr><th>分類コード</th><td>{{$items->code}}</td></tr>
             <tr><th></th><td></td><td><input type="submit" value="削除"></td>
+            <th></th><td></td><td><input type="button" value="削除しない"
+  onClick="history.back()"></td>
             </tr>
         </table>
     </form>
