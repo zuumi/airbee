@@ -5,7 +5,7 @@
 @section('menubar')
     @parent
     登録完了
-    <a href="{{url('/user/auth')}}">ホームに戻る</a>
+    <a href="{{url('/user/login')}}">ホームに戻る</a>
 @endsection
 
 @section('content')
