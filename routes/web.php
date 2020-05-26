@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// 1/7 河住　追加　0526////
+use App\Http\Middleware\Login;
+//////////
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user.welcome');
-});
+Route::get('/', function () { return view('user.welcome'); });
 //河住圭紀 追加分 スタート0520
 Route::get('/admin/login','AdminController@index');
 Route::post('/admin','AdminController@login');
@@ -57,9 +58,12 @@ Route::get('user/login','UserController@index');
 Route::post('user/auth','UserController@post');
 //大内千夏 追加分 エンド 0520     ←更新　河住　0525
 // 大内 0521 start
-Route::get('/user/inn/show','UserController@shows');
+Route::get('/user/inn/show','UserController@shows')
+    ->middleware(Login::class);// 2/7 河住　追加　0526////
 Route::post('/user/inn/show','UserController@searches');
-Route::get('/user/inn/detail/{id}','UserController@detail');
+Route::get('/user/inn/detail/{id}','UserController@detail')
+    ->middleware(Login::class);// 3/7 河住　追加　0526////
+
 //大内 0521 end
 
 //大内千夏 追加分 スタート 0522
@@ -67,21 +71,25 @@ Route::get('/admin/register', 'AdminController@useradd');
 Route::post('/admin/register_confirm', 'AdminController@register_confirm');
 Route::post('/admin/register', 'AdminController@register_create');
 Route::get('/admin/register_done', 'AdminController@register_done');
+Route::get('/user/del/{id}','UserController@del')
+    ->middleware(Login::class);// 4/7 河住　追加　0526////
 
-Route::get('/user/del/{id}','UserController@del');
 Route::post('/user/delconfirm/{id}','UserController@delconfirm');
 Route::post('/user/del','UserController@remove');
 //大内千夏 追加分 エンド　0522
 
 //河住 0522 start
-Route::get('/user/auth','UserController@home');
+Route::get('/user/auth','UserController@home')
+    ->middleware(Login::class);// 5/7 河住　追加　0526////
 
 Route::get('user/logout','UserController@logout');
-Route::get('user/edit/{id}','UserController@edit');
+Route::get('user/edit/{id}','UserController@edit')
+    ->middleware(Login::class);// 6/7 河住　追加　0526////
 Route::post('user/edit/{id}','UserController@edit_confirm');
 Route::post('user/edit','UserController@update');
 
-Route::get('user/inn/reservation','ReservationController@index');
+Route::get('user/inn/reservation','ReservationController@index')
+    ->middleware(Login::class);// 7/7 河住　追加　0526////
 Route::post('user/inn/reservation','ReservationController@add');
 Route::post('user/inn/reservation_done','ReservationController@create');
 //河住 0522 end
