@@ -17,6 +17,9 @@ class ReservationController extends Controller
     }
     public function add(Request $request)
     {
+        //バリデーション追加　建部　0526　----------
+         $this->validate($request, Reservation::$rules, Reservation::$messages);
+        //---------------------------------------
          $reservation = new Reservation($request->all());
          $request->session()->put('reservation', $reservation);
          return view('reservation.add_confirm', compact('reservation'));
