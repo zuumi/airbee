@@ -11,8 +11,9 @@
         header{
             background-color: #ff7300;
             color:white;
-            padding: 20px 40px;
+            padding: 48px 48px;
             font-size: 24px;
+            height:150px;
         }
         main{
             /* height: 400px; */
