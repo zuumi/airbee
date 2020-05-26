@@ -31,13 +31,12 @@ class UserController extends Controller
             $request->session()->put('email',$email);
             $request->session()->put('password',$postpass);
             $param = User::where('email',$email)->first();
-            $msgone = 'この'.$userpass.'と'.$postpass.'は同じです';
-            return view('user.index',['items'=>$param,'message'=>$msgone]);
-            //　河住圭紀　更新 0525 end
+            return view('user.index',['items'=>$param]);
+            //　河住圭紀　更新  end
         }
         else
         {
-            //　河住圭紀　更新(全4か所２) 0525 start
+            //　河住圭紀　更新 0525 start
             if(isset($_SESSION['email']))
             {
                 unset($_SESSION['email']);
@@ -54,7 +53,7 @@ class UserController extends Controller
 
 //大内追加分　start
 
-    //河住　0525 (全4か所３)start
+    //河住　0525 start
     public function shows(Request $request)
    {
      $items = Inn::all();
@@ -69,7 +68,7 @@ class UserController extends Controller
      $items = Inn::where('name','like','%'.$request->input.'%')->get();
      return view('reservation.index',  ['input' => $request->input],[ 'items' => $items]);
    }
-   // 河住　更新（全4箇所４）0525
+   // 河住　更新　0525
     public function detail(Request $request)
     {
         $id = $request->id;
@@ -79,35 +78,26 @@ class UserController extends Controller
         $userid = User::where('email',$useremail)->value('id');
         return view('reservation.inn',['inn'=>$inn,'user'=>$userid]);
     }
-    // 河住　更新 （全4箇所４）0525
+    // 河住　更新　0525
 
     //大内追加分　end
 
-    // 河住圭紀　追加 0522
+    // 河住 更新  更新 0526
     public function home(Request $request)
     {
-        //河住　更新 0525 (五か所目)
-        if($request->session()->exists('email')){
-            $email = $request->session()->get('email');
-            $param = User::where('email',$email)->first();
-            return view('user.index',['items'=>$param]);
-            //河住　更新 0525　 (五か所目)
-        }else{
-            unset($_SESSION['email']);
-            unset($_SESSION['password']);
-            return view('user.login');
-            exit;
-        }
+        $email = $request->session()->get('email');
+        $param = User::where('email',$email)->first();
+        return view('user.index',['items'=>$param]);
     }
-    // 河住 0525 start
+    // 河住 0526 更新　end
+
     public function logout(Request $request)
     {
-        session_start();
-        session_destroy();
+        $request->session()->flush();
         $msg= 'ログインしてください';
         return view('user.login',['message'=>$msg]);
     }
-    // 河住 0525 end
+    // 河住 0526 更新　end
 
     public function edit(Request $request)
     {
