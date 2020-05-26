@@ -15,7 +15,7 @@
   <p>宿の郵便番号： {{$inn->postal}}</p>
   <p>宿の住所： {{$inn->address}}</p>
   <p>チェックイン時間： {{$inn->checkintime}}</p>
-  <p>チェックアウト時間： {{$inn->chekuouttime}}</p>
+  <p>チェックアウト時間： {{$inn->checkouttime}}</p>
   <p>分類コード： {{$inn->code}}</p>
   <p>Eメールアドレス： {{$inn->mail}}</p>
 @endsection
