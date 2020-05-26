@@ -15,7 +15,7 @@ use App\Inn;
 class AdminController extends Controller
 {
     protected static $delete = true;
-    //河住圭紀 追加分 スタート
+    //河住 更新　0526 start//////////////////////////////////////
     public function index(Request $request)
     {
         return view('admin.login');
@@ -23,44 +23,30 @@ class AdminController extends Controller
 
     public function login(Request $request)
     {
-        session_start();
         $mail=$request->mail;
         $password=$request->password;
-        if('aribee@airbee.com'==$mail && 'himitu'==$password)
+        if('admin@gmail.com'==$mail && 'himitu'==$password)
         {
-            $_SESSION['mail']=$mail;
-            $_SESSION['password']=$password;
+            $request->session()->put('mail',$mail);
+            $request->session()->put('password',$password);
             return view('admin.index');
         }else {
-            unset($_SESSION['mail']);
-            unset($_SESSION['password']);
+            $request->session()->flush();
             return view('admin.login');
-            exit;
         }
     }
     public function back(Request $request)
     {
-        session_start();
-        if('aribee@airbee.com'== $_SESSION['mail'] && 'himitu'==$_SESSION['password'])
-        {
             return view('admin.index');
-        }else {
-            unset($_SESSION['mail']);
-            unset($_SESSION['password']);
-            return view('admin.login');
-            exit;
-        }
     }
 
     public function logout(Request $request)
     {
-            session_start();
-            unset($_SESSION['mail']);
-            unset($_SESSION['password']);
+            $request->session()->flush();
             return view('admin.login');
             exit;
     }
-    //河住圭紀 追加分 エンド
+    //河住 更新　0526  end ///////////////////////////////////////////
 
     //建部日向　追加分　スタート
     public function show(Request $request)

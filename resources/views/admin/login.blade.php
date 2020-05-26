@@ -5,7 +5,7 @@
 @section('menubar')
     @parent
     <h3>これは管理者ログイン画面です</h3>
-    <p>mail:aribee@airbee.com <br> password:himitu</p>
+    <p>mail:admin@gmail.com <br> password:himitu</p>
 @endsection
 
 @section('content')
