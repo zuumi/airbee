@@ -5,7 +5,7 @@
         text-align: center;
     }
 </style>
-@section('title','Delete')
+@section('title','強制退会')
 
 @section('menubar')
 
@@ -26,8 +26,8 @@
             <tr>
                 <th></th>
                 <td>
-                    <input type="submit" value="削除">
-                    <input type="button" value="削除しない" onClick="history.back()">
+                    <input type="submit" value="退会させる">
+                    <input type="button" value="退会させない" onClick="history.back()">
                 </td>
             </tr>
         </table>

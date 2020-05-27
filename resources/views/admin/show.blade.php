@@ -4,8 +4,12 @@
     .container{
         margin-top:16px;
     }
+    .showform{
+        margin:8px 8px;
+    }
+
 </style>
-@section('title','Show Users')
+@section('title','会員一覧')
 
 @section('menubar')
     @parent
@@ -21,7 +25,7 @@
             </div>
         </li>
         <li>
-            <form action="/admin/usershow" method="get">
+            <form class="showform" action="/admin/usershow" method="get">
                     @csrf
                     <div class="input_wrap">
                         <td><input type="text" name="keyword" value="{{ old('keyword')}}"placeholder="キーワードを入力してください。"></td>

@@ -4,8 +4,11 @@
     .container{
         margin-top: 16px;
     }
+    .addform{
+        margin:8px 8px;
+    }
 </style>
-@section('title','Index')
+@section('title','宿一覧')
 
 @section('menubar')
     @parent
@@ -21,7 +24,7 @@
             </div>
         </li>
         <li>
-            <form action="/inn/show" method="post">
+            <form class="addform" action="/inn/show" method="post">
                 @csrf
                 <div class="input_wrap">
                     <input class="inputtext" type="text" name="input" value="{{$input}}">

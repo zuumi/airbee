@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','宿予約システム')
+@section('title','会員登録')
 
 @section('menubar')
     @parent
@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
 
-      <h1>登録フォーム</h1>
+      <h1>会員登録フォーム</h1>
       <hr>
       <form action="./toroku" method="post">
            @csrf

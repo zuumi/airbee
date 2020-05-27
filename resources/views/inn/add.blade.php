@@ -1,16 +1,31 @@
 @extends('layouts.app')
-
-@section('title','Add')
+<style media="screen">
+    .container{
+        padding: 16px 16px;
+    }
+</style>
+@section('title','宿 登録')
 
 @section('menubar')
-    宿登録ページ
+メニュー
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="{{ url('/admin/userlist') }}" class="nav-link">会員一覧</a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">宿情報を操作</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{ url('/inn/show') }}">宿一覧</a>
+                <a class="dropdown-item" href="{{ url('/inn/add') }}">宿登録</a>
+            </div>
+        </li>
+    </ul>
 @endsection
 
 @section('content')
   @if (count($errors) > 0)
   <p>入力に誤りがあります。再入力してください。</p>
   @endif
-
+<div class="container">
+    <p>宿登録フォーム</p>
   <form action="{{action('AdminController@add_confirm')}}" method="post">
     @csrf
     <table>
@@ -53,6 +68,7 @@
         <tr><td></td><td><input type="submit" value="確認画面へ"></td></tr>
     </table>
   </form>
+</div>
 @endsection
 
 @section('footer')

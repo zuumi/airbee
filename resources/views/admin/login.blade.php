@@ -1,15 +1,13 @@
 @extends('layouts.app')
 
-@section('title','Login')
+@section('title','管理者ログイン画面')
 
 @section('menubar')
     @parent
-    <h3>これは管理者ログイン画面です</h3>
-    <p>mail:admin@gmail.com <br> password:himitu</p>
 @endsection
 
 @section('content')
-    <table>
+    <table style="margin:32px 32px;">
         <form action="/admin" method="post">
             @csrf
             <tr><td>Eメール</td><td><input type="text" name="mail"></td></tr>

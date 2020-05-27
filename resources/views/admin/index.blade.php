@@ -6,7 +6,7 @@
         padding: 5px 7px;
     }
 </style>
-@section('title','Index')
+@section('title','ホーム')
 
 @section('menubar')
     @parent

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Edit')
+@section('title','更新画面')
 
 @section('menubar')
     @parent
