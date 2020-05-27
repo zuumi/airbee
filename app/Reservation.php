@@ -14,7 +14,7 @@ class Reservation extends Model
         'guestscount' => 'required',
     );
 
-    public static $message = array(
+    public static $messages = array(
         'firstday.required' => '予約日付は必須項目です。',
         'firstday.after' => '予約日付は今日以降にしてください。',
         'endday.required' => '予約日付は必須項目です。',
